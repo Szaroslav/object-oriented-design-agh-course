@@ -12,9 +12,7 @@ public abstract class Suspect {
         this.id = id;
         this.age = age;
     }
-
-
-
+    
     @Override
     public String toString() {
         return firstName + " " + lastName;
