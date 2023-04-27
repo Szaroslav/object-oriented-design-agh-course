@@ -3,6 +3,8 @@ package pl.edu.agh.internetshop;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
@@ -21,13 +23,19 @@ public class OrderTest {
 	public void testGetProductThroughOrder() {
 		// given
 		Product expectedProduct = mock(Product.class);
-		Order order = new Order(expectedProduct);
+		Order order1 = new Order(expectedProduct);
+		List<Product> products = new ArrayList<>();
+		products.add(mock(Product.class));
+		products.add(mock(Product.class));
+		Order order2 = new Order(products);
 
 		// when
-		Product actualProduct = order.getProduct();
+		Product actualProduct = order1.getProduct();
+		List<Product> actualProducts = order2.getProducts();
 
 		// then
 		assertSame(expectedProduct, actualProduct);
+		assertEquals(products, actualProducts);
 	}
 
 	@Test
