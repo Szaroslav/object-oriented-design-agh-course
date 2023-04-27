@@ -1,22 +1,29 @@
 package pl.edu.agh.internetshop;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 
 public class Order {
     private static final BigDecimal TAX_VALUE = BigDecimal.valueOf(1.23);
-	private final UUID id;
-    private final Product product;
+    private static final float DISCOUNT_VALUE = 0.9f;
+	private UUID id;
+    private final List<Product> products = new ArrayList<>();
     private boolean paid;
     private Shipment shipment;
     private ShipmentMethod shipmentMethod;
     private PaymentMethod paymentMethod;
 
     public Order(Product product) {
-        this.product = product;
+        this.products.add(product);
         id = UUID.randomUUID();
         paid = false;
+    }
+
+    public Order(List<Product> products) {
+        this.products.addAll(products);
     }
 
     public UUID getId() {
@@ -42,7 +49,11 @@ public class Order {
     }
 
     public BigDecimal getPrice() {
-        return product.getPrice();
+        BigDecimal sum = BigDecimal.valueOf(0);
+        for (Product p : products)
+            sum = sum.add(p.getPrice());
+
+        return sum;
     }
 
     public BigDecimal getPriceWithTaxes() {
@@ -50,7 +61,11 @@ public class Order {
     }
 
     public Product getProduct() {
-        return product;
+        return products.get(0);
+    }
+
+    public List<Product> getProducts() {
+        return products;
     }
 
     public ShipmentMethod getShipmentMethod() {
