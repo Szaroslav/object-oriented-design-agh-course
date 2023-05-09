@@ -1,7 +1,7 @@
 package pl.agh.edu.dp.labirynth;
 
 public class MazeGame {
-    public Maze createMaze(){
+    public Maze createMaze(MazeBuilder builder){
         Maze maze = new Maze();
 
         Room r1 = new Room(1);

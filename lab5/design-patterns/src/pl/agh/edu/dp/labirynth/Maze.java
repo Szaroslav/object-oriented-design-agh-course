@@ -17,6 +17,10 @@ public class Maze {
         this.rooms = rooms;
     }
 
+    public boolean containsRoom(Room room) {
+        return rooms.contains(room);
+    }
+
     public int getRoomNumbers()
     {
         return rooms.size();
