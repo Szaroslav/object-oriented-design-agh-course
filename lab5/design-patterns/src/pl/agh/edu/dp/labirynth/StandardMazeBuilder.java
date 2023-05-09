@@ -11,7 +11,7 @@ public class StandardMazeBuilder implements MazeBuilder {
     @Override
     public void addWall(Wall wall, Room room, Direction direction) throws IllegalArgumentException {
         if (!currentMaze.containsRoom(room))
-            throw new IllegalArgumentException("The room does not exist in current maze");
+            throw new IllegalArgumentException("The room doesn't exist in the current maze");
 
         room.setSide(direction, wall);
     }
@@ -36,6 +36,6 @@ public class StandardMazeBuilder implements MazeBuilder {
                 return direction;
         }
 
-        throw new IllegalArgumentException("The rooms are not adjacent");
+        throw new IllegalArgumentException("The rooms don't have relevant walls");
     }
 }
