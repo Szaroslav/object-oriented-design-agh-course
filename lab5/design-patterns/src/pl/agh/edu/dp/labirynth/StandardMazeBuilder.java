@@ -9,12 +9,17 @@ public class StandardMazeBuilder implements MazeBuilder {
     }
 
     @Override
-    public void addWall(Wall wall, Room r1, Room r2, Direction direction) throws IllegalArgumentException {
-        if (!currentMaze.containsRoom(r1) || !currentMaze.containsRoom(r2))
-            throw new IllegalArgumentException("The rooms don't exist in the current maze");
+    public void addWall(Wall wall, Direction direction, Room r1, Room r2) throws IllegalArgumentException {
+        if (r1 == null)
+            throw new IllegalArgumentException("The room (r1) mustn't be null");
+        if (!currentMaze.containsRoom(r1))
+            throw new IllegalArgumentException("The room (r1) doesn't exist in the current maze");
+        if (r2 != null && !currentMaze.containsRoom(r2))
+            throw new IllegalArgumentException("The room (r2) doesn't exist in the current maze");
 
         r1.setSide(direction, wall);
-        r2.setSide(Direction.oppositeDirection(direction), wall);
+        if (r2 != null)
+            r2.setSide(Direction.oppositeDirection(direction), wall);
     }
 
     @Override
