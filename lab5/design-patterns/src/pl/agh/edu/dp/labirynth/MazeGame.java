@@ -1,23 +1,26 @@
 package pl.agh.edu.dp.labirynth;
 
+import pl.agh.edu.dp.labirynth.builder.MazeBuilder;
+import pl.agh.edu.dp.labirynth.factory.MazeFactory;
+
 public class MazeGame {
-    public Maze createMaze(MazeBuilder mazeBuilder){
-        Room r1 = new Room(1);
+    public Maze createMaze(MazeBuilder mazeBuilder, MazeFactory mazeFactory){
+        Room r1 = mazeFactory.createRoom();
         mazeBuilder.addRoom(r1);
-        Room r2 = new Room(2);
+        Room r2 = mazeFactory.createRoom();
         mazeBuilder.addRoom(r2);
 
-        mazeBuilder.addWall(new Wall(), Direction.North, r1, r2);
-        mazeBuilder.addWall(new Wall(), Direction.South, r1, null);
-        mazeBuilder.addWall(new Wall(), Direction.East, r1, null);
-        mazeBuilder.addWall(new Wall(), Direction.West, r1, null);
+        mazeBuilder.addWall(mazeFactory.createWall(), Direction.North, r1, r2);
+        mazeBuilder.addWall(mazeFactory.createWall(), Direction.South, r1, null);
+        mazeBuilder.addWall(mazeFactory.createWall(), Direction.East, r1, null);
+        mazeBuilder.addWall(mazeFactory.createWall(), Direction.West, r1, null);
 
-        mazeBuilder.addWall(new Wall(), Direction.North, r2, null);
-        mazeBuilder.addWall(new Wall(), Direction.South, r2, r1);
-        mazeBuilder.addWall(new Wall(), Direction.East, r2, null);
-        mazeBuilder.addWall(new Wall(), Direction.West, r2, null);
+        mazeBuilder.addWall(mazeFactory.createWall(), Direction.North, r2, null);
+        mazeBuilder.addWall(mazeFactory.createWall(), Direction.South, r2, r1);
+        mazeBuilder.addWall(mazeFactory.createWall(), Direction.East, r2, null);
+        mazeBuilder.addWall(mazeFactory.createWall(), Direction.West, r2, null);
 
-        Door door = new Door(r1, r2);
+        Door door = mazeFactory.createDoor(r1, r2);
         mazeBuilder.addDoor(door);
 
         return mazeBuilder.getMaze();

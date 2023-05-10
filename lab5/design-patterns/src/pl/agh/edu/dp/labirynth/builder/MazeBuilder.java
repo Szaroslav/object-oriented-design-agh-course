@@ -1,4 +1,6 @@
-package pl.agh.edu.dp.labirynth;
+package pl.agh.edu.dp.labirynth.builder;
+
+import pl.agh.edu.dp.labirynth.*;
 
 public interface MazeBuilder {
     void addRoom(Room room);

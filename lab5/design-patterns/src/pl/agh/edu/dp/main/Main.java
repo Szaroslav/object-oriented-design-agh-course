@@ -1,6 +1,8 @@
 package pl.agh.edu.dp.main;
 
 import pl.agh.edu.dp.labirynth.*;
+import pl.agh.edu.dp.labirynth.builder.MazeBuilder;
+import pl.agh.edu.dp.labirynth.builder.StandardMazeBuilder;
 
 public class Main {
 
