@@ -1,7 +1,9 @@
 package pl.agh.edu.dp.labirynth;
 
-import pl.agh.edu.dp.labirynth.builder.MazeBuilder;
-import pl.agh.edu.dp.labirynth.factory.MazeFactory;
+import pl.agh.edu.dp.labirynth.builders.MazeBuilder;
+import pl.agh.edu.dp.labirynth.components.doors.Door;
+import pl.agh.edu.dp.labirynth.components.rooms.Room;
+import pl.agh.edu.dp.labirynth.factories.MazeFactory;
 
 public class MazeGame {
     public Maze createMaze(MazeBuilder mazeBuilder, MazeFactory mazeFactory){

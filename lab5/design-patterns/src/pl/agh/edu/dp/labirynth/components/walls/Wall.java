@@ -1,4 +1,6 @@
-package pl.agh.edu.dp.labirynth;
+package pl.agh.edu.dp.labirynth.components.walls;
+
+import pl.agh.edu.dp.labirynth.MapSite;
 
 import java.util.List;
 

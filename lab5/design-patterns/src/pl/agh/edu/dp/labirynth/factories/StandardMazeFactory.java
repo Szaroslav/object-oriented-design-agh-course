@@ -1,8 +1,8 @@
-package pl.agh.edu.dp.labirynth.factory;
+package pl.agh.edu.dp.labirynth.factories;
 
-import pl.agh.edu.dp.labirynth.Door;
-import pl.agh.edu.dp.labirynth.Room;
-import pl.agh.edu.dp.labirynth.Wall;
+import pl.agh.edu.dp.labirynth.components.doors.Door;
+import pl.agh.edu.dp.labirynth.components.rooms.Room;
+import pl.agh.edu.dp.labirynth.components.walls.Wall;
 
 public class StandardMazeFactory implements MazeFactory {
     private int roomCount = 0;
