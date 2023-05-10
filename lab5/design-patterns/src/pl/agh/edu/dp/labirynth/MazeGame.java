@@ -5,7 +5,11 @@ import pl.agh.edu.dp.labirynth.components.doors.Door;
 import pl.agh.edu.dp.labirynth.components.rooms.Room;
 import pl.agh.edu.dp.labirynth.factories.MazeFactory;
 
+import java.io.IOException;
+
 public class MazeGame {
+    private Player player;
+
     public Maze createMaze(MazeBuilder mazeBuilder, MazeFactory mazeFactory){
         Room r1 = mazeFactory.createRoom();
         mazeBuilder.addRoom(r1);
@@ -26,6 +30,23 @@ public class MazeGame {
         mazeBuilder.addDoor(door);
 
         return mazeBuilder.getMaze();
+    }
+
+    public void createPlayer(String name, Room currentRoom) {
+        player = new Player(name, currentRoom);
+    }
+
+    public void start() throws IOException {
+        char input = '\0';
+        while (input != 'q' && input != 'Q') {
+            input = (char) System.in.read();
+            switch (input) {
+                case 'w' -> player.move(Direction.North);
+                case 's' -> player.move(Direction.South);
+                case 'd' -> player.move(Direction.East);
+                case 'a' -> player.move(Direction.West);
+            }
+        }
     }
 
 //    private static void surroundRoomByWalls(MazeBuilder mazeBuilder, Room room) {

@@ -27,4 +27,11 @@ public class Maze {
     {
         return rooms.size();
     }
+
+    public Room getFirstRoom() throws IllegalStateException {
+        if (getRoomNumbers() <= 0)
+            throw new IllegalStateException("The current maze is empty");
+
+        return rooms.get(0);
+    }
 }
