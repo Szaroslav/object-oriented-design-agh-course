@@ -5,7 +5,18 @@ import pl.agh.edu.dp.labirynth.components.rooms.Room;
 import pl.agh.edu.dp.labirynth.components.walls.Wall;
 
 public class StandardMazeFactory implements MazeFactory {
-    private int roomCount = 0;
+    protected int roomCount = 0;
+    protected static MazeFactory instance = null;
+
+    protected StandardMazeFactory() {}
+
+    public static MazeFactory getInstance() {
+        if (instance == null) {
+            instance = new StandardMazeFactory();
+        }
+
+        return instance;
+    }
 
     @Override
     public Room createRoom() {

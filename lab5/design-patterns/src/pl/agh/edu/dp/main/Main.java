@@ -12,12 +12,9 @@ public class Main {
 
         MazeGame mazeGame = new MazeGame();
         MazeBuilder mazeBuilder = new StandardMazeBuilder();
-        MazeFactory mazeFactory = new StandardMazeFactory();
+        MazeFactory mazeFactory = StandardMazeFactory.getInstance();
         Maze maze = mazeGame.createMaze(mazeBuilder, mazeFactory);
 
         System.out.println(maze.getRoomNumbers());
     }
 }
-
-
-

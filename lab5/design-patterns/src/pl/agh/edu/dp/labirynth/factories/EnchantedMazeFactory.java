@@ -7,8 +7,8 @@ import pl.agh.edu.dp.labirynth.components.rooms.Room;
 import pl.agh.edu.dp.labirynth.components.walls.EnchantedWall;
 import pl.agh.edu.dp.labirynth.components.walls.Wall;
 
-public class EnchantedMazeFactory implements MazeFactory {
-    private int roomCount = 0;
+public class EnchantedMazeFactory extends StandardMazeFactory {
+    private EnchantedMazeFactory() {}
 
     @Override
     public Room createRoom() {
