@@ -62,6 +62,4 @@ public class Faktura {
 	{
 		return this.kontrahent;
 	}
-	
-	
 }

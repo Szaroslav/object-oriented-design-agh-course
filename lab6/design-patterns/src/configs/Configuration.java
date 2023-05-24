@@ -1,5 +1,8 @@
 package configs;
 
+import dokumenty.Faktura;
+import dokumenty.PrintDiscountedInvoice;
+import dokumenty.PrintInvoice;
 import rabaty.ObliczCenePoRabacie;
 import rabaty.PercentageDiscountCalculator;
 
@@ -8,11 +11,13 @@ public class Configuration {
     private final double PERCENTAGE_DISCOUNT_VALUE;
     private final double LINEAR_DISCOUNT_VALUE;
     private final ObliczCenePoRabacie discountCalculator;
+    private final PrintInvoice printInvoice;
 
     private Configuration() {
         PERCENTAGE_DISCOUNT_VALUE = 0.1;
         LINEAR_DISCOUNT_VALUE = 10;
         discountCalculator = new PercentageDiscountCalculator();
+        printInvoice = new PrintDiscountedInvoice();
     }
 
     public static Configuration getInstance() {
@@ -32,5 +37,9 @@ public class Configuration {
 
     public ObliczCenePoRabacie getDiscountCalculator() {
         return discountCalculator;
+    }
+
+    public PrintInvoice getPrinter() {
+        return printInvoice;
     }
 }

@@ -1,6 +1,10 @@
 package main;
 
 import java.util.Calendar;
+
+import categories.Subcategory;
+import configs.Configuration;
+import magazyn.MerchandiseManager;
 import magazyn.Towar;
 import dokumenty.Faktura;
 import dokumenty.PrintInvoice;
@@ -23,10 +27,13 @@ public class Ui {
 		f.dodajPozycje(t1,3);
 		f.dodajPozycje(t2, 5);
 		
-		PrintInvoice.printInvoice(f);
+		Configuration.getInstance().getPrinter().printInvoice(f);
 		
 		//TEST ZEWN. rabatu
 		LosowyRabat lr=new LosowyRabat();
 		System.out.println(lr.losujRabat());
+
+		MerchandiseManager merchandiseManager = new MerchandiseManager();
+		merchandiseManager.printAllCategories();
 	}
 }
